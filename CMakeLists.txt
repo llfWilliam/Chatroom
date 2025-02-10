@@ -49,7 +49,8 @@ set_target_properties(Chatroom PROPERTIES WIN32_EXECUTABLE TRUE)
 target_link_libraries(Chatroom PRIVATE Qt${QT_VERSION_MAJOR}::Widgets Qt${QT_VERSION_MAJOR}::Core Qt${QT_VERSION_MAJOR}::Network)
 
 # 创建服务器端可执行文件（⚠️ 不能加 WIN32_EXECUTABLE）
-add_executable(ChatServer server.cpp)
+add_executable(ChatServer server.cpp server.h server_main.cpp
+    server_main.h server_main.cpp)
 set_target_properties(ChatServer PROPERTIES WIN32_EXECUTABLE FALSE)
 target_link_libraries(ChatServer PRIVATE Qt${QT_VERSION_MAJOR}::Core Qt${QT_VERSION_MAJOR}::Network)
 

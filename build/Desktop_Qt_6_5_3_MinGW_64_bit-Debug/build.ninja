@@ -133,6 +133,14 @@ build CMakeFiles/ChatServer.dir/server.cpp.obj: CXX_COMPILER__ChatServer_unscann
   OBJECT_DIR = CMakeFiles\ChatServer.dir
   OBJECT_FILE_DIR = CMakeFiles\ChatServer.dir
 
+build CMakeFiles/ChatServer.dir/server_main.cpp.obj: CXX_COMPILER__ChatServer_unscanned_Debug E$:/Program$ Files/GitHub/Chatroom/server_main.cpp || cmake_object_order_depends_target_ChatServer
+  DEFINES = -DMINGW_HAS_SECURE_API=1 -DQT_CORE_LIB -DQT_NETWORK_LIB -DUNICODE -DWIN32 -DWIN64 -D_ENABLE_EXTENDED_ALIGNED_STORAGE -D_UNICODE -D_WIN64
+  DEP_FILE = CMakeFiles\ChatServer.dir\server_main.cpp.obj.d
+  FLAGS = -DQT_QML_DEBUG -g -std=gnu++17 -fdiagnostics-color=always
+  INCLUDES = -I"E:/Program Files/GitHub/Chatroom/build/Desktop_Qt_6_5_3_MinGW_64_bit-Debug/ChatServer_autogen/include" -isystem E:/Qt/6.5.3/mingw_64/include/QtCore -isystem E:/Qt/6.5.3/mingw_64/include -isystem E:/Qt/6.5.3/mingw_64/mkspecs/win32-g++ -isystem E:/Qt/6.5.3/mingw_64/include/QtNetwork
+  OBJECT_DIR = CMakeFiles\ChatServer.dir
+  OBJECT_FILE_DIR = CMakeFiles\ChatServer.dir
+
 
 # =============================================================================
 # Link build statements for EXECUTABLE target ChatServer
@@ -141,7 +149,7 @@ build CMakeFiles/ChatServer.dir/server.cpp.obj: CXX_COMPILER__ChatServer_unscann
 #############################################
 # Link the executable ChatServer.exe
 
-build ChatServer.exe: CXX_EXECUTABLE_LINKER__ChatServer_Debug CMakeFiles/ChatServer.dir/ChatServer_autogen/mocs_compilation.cpp.obj CMakeFiles/ChatServer.dir/server.cpp.obj | E$:/Qt/6.5.3/mingw_64/lib/libQt6Network.a E$:/Qt/6.5.3/mingw_64/lib/libQt6Core.a || ChatServer_autogen ChatServer_autogen_timestamp_deps
+build ChatServer.exe: CXX_EXECUTABLE_LINKER__ChatServer_Debug CMakeFiles/ChatServer.dir/ChatServer_autogen/mocs_compilation.cpp.obj CMakeFiles/ChatServer.dir/server.cpp.obj CMakeFiles/ChatServer.dir/server_main.cpp.obj | E$:/Qt/6.5.3/mingw_64/lib/libQt6Network.a E$:/Qt/6.5.3/mingw_64/lib/libQt6Core.a || ChatServer_autogen ChatServer_autogen_timestamp_deps
   FLAGS = -DQT_QML_DEBUG -g
   LINK_LIBRARIES = E:/Qt/6.5.3/mingw_64/lib/libQt6Network.a  E:/Qt/6.5.3/mingw_64/lib/libQt6Core.a  -lmpr  -luserenv  -lws2_32  -lkernel32 -luser32 -lgdi32 -lwinspool -lshell32 -lole32 -loleaut32 -luuid -lcomdlg32 -ladvapi32
   OBJECT_DIR = CMakeFiles\ChatServer.dir

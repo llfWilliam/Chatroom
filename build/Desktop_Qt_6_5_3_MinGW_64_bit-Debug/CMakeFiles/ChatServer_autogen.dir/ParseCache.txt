@@ -316,4 +316,6 @@ E:/Program Files/GitHub/Chatroom/server.h
  mdp:E:/Qt/Tools/mingw1120_64/x86_64-w64-mingw32/include/time.h
  mdp:E:/Qt/Tools/mingw1120_64/x86_64-w64-mingw32/include/vadefs.h
  mdp:E:/Qt/Tools/mingw1120_64/x86_64-w64-mingw32/include/wchar.h
+E:/Program Files/GitHub/Chatroom/server_main.h
 E:/Program Files/GitHub/Chatroom/server.cpp
+E:/Program Files/GitHub/Chatroom/server_main.cpp

@@ -279,6 +279,12 @@
 			"MU",
 			"EWIEGA46WW/moc_server.cpp",
 			null
+		],
+		[
+			"E:/Program Files/GitHub/Chatroom/server_main.h",
+			"MU",
+			"EWIEGA46WW/moc_server_main.cpp",
+			null
 		]
 	],
 	"HEADER_EXTENSIONS" : [ "h", "hh", "h++", "hm", "hpp", "hxx", "in", "txx" ],
@@ -352,7 +358,8 @@
 	"SETTINGS_FILE" : "E:/Program Files/GitHub/Chatroom/build/Desktop_Qt_6_5_3_MinGW_64_bit-Debug/CMakeFiles/ChatServer_autogen.dir/AutogenUsed.txt",
 	"SOURCES" : 
 	[
-		[ "E:/Program Files/GitHub/Chatroom/server.cpp", "MU", null ]
+		[ "E:/Program Files/GitHub/Chatroom/server.cpp", "MU", null ],
+		[ "E:/Program Files/GitHub/Chatroom/server_main.cpp", "MU", null ]
 	],
 	"UIC_OPTIONS" : [],
 	"UIC_SEARCH_PATHS" : [],

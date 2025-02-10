@@ -7,6 +7,8 @@ ChatServer_autogen/timestamp: \
 	E:/Program\ Files/GitHub/Chatroom/build/Desktop_Qt_6_5_3_MinGW_64_bit-Debug/ChatServer_autogen/moc_predefs.h \
 	E:/Program\ Files/GitHub/Chatroom/server.cpp \
 	E:/Program\ Files/GitHub/Chatroom/server.h \
+	E:/Program\ Files/GitHub/Chatroom/server_main.cpp \
+	E:/Program\ Files/GitHub/Chatroom/server_main.h \
 	E:/Qt/6.5.3/mingw_64/include/QtCore/QMap \
 	E:/Qt/6.5.3/mingw_64/include/QtCore/QObject \
 	E:/Qt/6.5.3/mingw_64/include/QtCore/q20memory.h \

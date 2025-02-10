@@ -1,0 +1,106 @@
+{
+	"configurations" : 
+	[
+		{
+			"directories" : 
+			[
+				{
+					"build" : ".",
+					"hasInstallRule" : true,
+					"jsonFile" : "directory-.-Debug-3f68dd2c3f103256d738.json",
+					"minimumCMakeVersion" : 
+					{
+						"string" : "3.16"
+					},
+					"projectIndex" : 0,
+					"source" : ".",
+					"targetIndexes" : 
+					[
+						0,
+						1,
+						2,
+						3,
+						4,
+						5
+					]
+				}
+			],
+			"name" : "Debug",
+			"projects" : 
+			[
+				{
+					"directoryIndexes" : 
+					[
+						0
+					],
+					"name" : "Chatroom",
+					"targetIndexes" : 
+					[
+						0,
+						1,
+						2,
+						3,
+						4,
+						5
+					]
+				}
+			],
+			"targets" : 
+			[
+				{
+					"directoryIndex" : 0,
+					"id" : "ChatServer::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-ChatServer-Debug-cd5ad7237bb9ffe670cc.json",
+					"name" : "ChatServer",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "ChatServer_autogen::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-ChatServer_autogen-Debug-d5579e4c3510627759e8.json",
+					"name" : "ChatServer_autogen",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "ChatServer_autogen_timestamp_deps::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-ChatServer_autogen_timestamp_deps-Debug-a561f33c087aa3a1ddbd.json",
+					"name" : "ChatServer_autogen_timestamp_deps",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "Chatroom::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-Chatroom-Debug-28db588f7b7007fb8ce3.json",
+					"name" : "Chatroom",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "Chatroom_autogen::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-Chatroom_autogen-Debug-2ef606aca517a621a017.json",
+					"name" : "Chatroom_autogen",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "Chatroom_autogen_timestamp_deps::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-Chatroom_autogen_timestamp_deps-Debug-f6c3752d66862bee89ce.json",
+					"name" : "Chatroom_autogen_timestamp_deps",
+					"projectIndex" : 0
+				}
+			]
+		}
+	],
+	"kind" : "codemodel",
+	"paths" : 
+	{
+		"build" : "E:/Program Files/GitHub/Chatroom/build/Desktop_Qt_6_5_3_MinGW_64_bit-Debug",
+		"source" : "E:/Program Files/GitHub/Chatroom"
+	},
+	"version" : 
+	{
+		"major" : 2,
+		"minor" : 7
+	}
+}
