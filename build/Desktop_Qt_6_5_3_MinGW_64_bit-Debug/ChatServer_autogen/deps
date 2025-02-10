@@ -11,6 +11,7 @@ ChatServer_autogen/timestamp: \
 	E:/Program\ Files/GitHub/Chatroom/server_main.h \
 	E:/Qt/6.5.3/mingw_64/include/QtCore/QMap \
 	E:/Qt/6.5.3/mingw_64/include/QtCore/QObject \
+	E:/Qt/6.5.3/mingw_64/include/QtCore/QTimer \
 	E:/Qt/6.5.3/mingw_64/include/QtCore/q20memory.h \
 	E:/Qt/6.5.3/mingw_64/include/QtCore/q20type_traits.h \
 	E:/Qt/6.5.3/mingw_64/include/QtCore/qalgorithms.h \
@@ -22,6 +23,7 @@ ChatServer_autogen/timestamp: \
 	E:/Qt/6.5.3/mingw_64/include/QtCore/qatomic.h \
 	E:/Qt/6.5.3/mingw_64/include/QtCore/qatomic_cxx11.h \
 	E:/Qt/6.5.3/mingw_64/include/QtCore/qbasicatomic.h \
+	E:/Qt/6.5.3/mingw_64/include/QtCore/qbasictimer.h \
 	E:/Qt/6.5.3/mingw_64/include/QtCore/qbindingstorage.h \
 	E:/Qt/6.5.3/mingw_64/include/QtCore/qbytearray.h \
 	E:/Qt/6.5.3/mingw_64/include/QtCore/qbytearrayalgorithms.h \
@@ -100,6 +102,7 @@ ChatServer_autogen/timestamp: \
 	E:/Qt/6.5.3/mingw_64/include/QtCore/qtdeprecationmarkers.h \
 	E:/Qt/6.5.3/mingw_64/include/QtCore/qtenvironmentvariables.h \
 	E:/Qt/6.5.3/mingw_64/include/QtCore/qtextstream.h \
+	E:/Qt/6.5.3/mingw_64/include/QtCore/qtimer.h \
 	E:/Qt/6.5.3/mingw_64/include/QtCore/qtmetamacros.h \
 	E:/Qt/6.5.3/mingw_64/include/QtCore/qtnoop.h \
 	E:/Qt/6.5.3/mingw_64/include/QtCore/qtpreprocessorsupport.h \

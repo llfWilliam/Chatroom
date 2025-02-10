@@ -2,7 +2,13 @@
 #include <QDebug>  // 输出调试信息
 
 // 构造函数
-ChatServer::ChatServer(QObject *parent) : QTcpServer(parent) {}
+ChatServer::ChatServer(QObject *parent)
+    : QTcpServer(parent), reconnectTimer(new QTimer(this))  // 初始化成员
+{
+    // 连接定时器的超时信号
+    connect(reconnectTimer, &QTimer::timeout, this, &ChatServer::onReconnect);
+}
+
 
 // 启动服务器监听
 void ChatServer::startServer(quint16 port) {
@@ -11,20 +17,24 @@ void ChatServer::startServer(quint16 port) {
     } else {
         qDebug() << "服务器启动失败：" << this->errorString();
     }
+    connect(this, &QTcpServer::newConnection, this, &ChatServer::incomingConnection);  // 新连接
 }
 
 // 处理新的客户端连接
-void ChatServer::incomingConnection(qintptr socketDescriptor) {
-    QTcpSocket *clientSocket = new QTcpSocket(this);  // 创建新客户端 socket
-    clientSocket->setSocketDescriptor(socketDescriptor);  // 绑定 socket 描述符
+void ChatServer::incomingConnection() {
+    // 使用 nextPendingConnection() 获取新连接的套接字
+    QTcpSocket *clientSocket = this->nextPendingConnection();
 
-    // 连接信号槽，监听客户端消息和断开事件
-    connect(clientSocket, &QTcpSocket::readyRead, this, &ChatServer::onReadyRead);
-    connect(clientSocket, &QTcpSocket::disconnected, this, &ChatServer::onClientDisconnected);
+    if (clientSocket) {
+        // 连接信号槽，监听客户端消息和断开事件
+        connect(clientSocket, &QTcpSocket::readyRead, this, &ChatServer::onReadyRead);
+        connect(clientSocket, &QTcpSocket::disconnected, this, &ChatServer::onClientDisconnected);
 
-    clients[clientSocket] = "";  // 存储客户端
-    qDebug() << "新客户端连接：" << socketDescriptor;
+        clients[clientSocket] = "";  // 存储客户端
+        qDebug() << "新客户端连接：" << clientSocket->peerAddress().toString();
+    }
 }
+
 
 // 读取客户端发送的消息
 void ChatServer::onReadyRead() {
@@ -40,7 +50,7 @@ void ChatServer::onReadyRead() {
     for (auto it = clients.begin(); it != clients.end(); ++it) {
         QTcpSocket *client = it.key();  // 直接取 key，而不是 keys()
         if (client != clientSocket) {
-            client->write(data);
+            client->write(data);  // 将消息发送给其他客户端
         }
     }
 }
@@ -53,4 +63,8 @@ void ChatServer::onClientDisconnected() {
     qDebug() << "客户端断开：" << clients[clientSocket];
     clients.remove(clientSocket);  // 从列表中移除
     clientSocket->deleteLater();  // 释放资源
+}
+void ChatServer::onReconnect() {
+    qDebug() << "尝试重新连接...";
+    // 实现重试逻辑（例如重新启动服务器或连接数据库等）
 }

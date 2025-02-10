@@ -11,6 +11,10 @@ public:
 
 private slots:
     void onSendClicked();  // 发送按钮事件
+    void onMessageReceived(const QString &message);
+    void onConnected();
+    void onDisconnected();
+    void onConnectionFailed(const QString &error);
 
 private:
     ChatClient *client;

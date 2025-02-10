@@ -12,6 +12,10 @@ MainWindow::MainWindow(QWidget *parent) : QMainWindow(parent) {
     sendButton = new QPushButton("发送", this);
 
     connect(sendButton, &QPushButton::clicked, this, &MainWindow::onSendClicked);
+    connect(client, &ChatClient::messageReceived, this, &MainWindow::onMessageReceived);
+    connect(client, &ChatClient::connected, this, &MainWindow::onConnected);
+    connect(client, &ChatClient::disconnected, this, &MainWindow::onDisconnected);
+    connect(client, &ChatClient::connectionFailed, this, &MainWindow::onConnectionFailed);
 
     QVBoxLayout *layout = new QVBoxLayout();
     layout->addWidget(chatBox);
@@ -30,4 +34,22 @@ void MainWindow::onSendClicked() {
         client->sendMessage(message);
         messageInput->clear();
     }
+}
+void MainWindow::onMessageReceived(const QString &message) {
+    chatBox->append("服务器: " + message);  // 显示服务器返回的消息
+}
+
+// 处理连接成功
+void MainWindow::onConnected() {
+    chatBox->append("[系统] 成功连接到服务器!");
+}
+
+// 处理断开连接
+void MainWindow::onDisconnected() {
+    chatBox->append("[系统] 服务器断开连接，正在重试...");
+}
+
+// 处理连接失败
+void MainWindow::onConnectionFailed(const QString &error) {
+    chatBox->append("[系统] 连接失败: " + error);
 }
