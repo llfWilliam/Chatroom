@@ -1,0 +1,12 @@
+E:/Program Files/GitHub/Chatroom/build/Desktop_Qt_6_5_3_MinGW_64_bit-MinSizeRel/CMakeFiles/Chatroom.dir
+E:/Program Files/GitHub/Chatroom/build/Desktop_Qt_6_5_3_MinGW_64_bit-MinSizeRel/CMakeFiles/ChatServer.dir
+E:/Program Files/GitHub/Chatroom/build/Desktop_Qt_6_5_3_MinGW_64_bit-MinSizeRel/CMakeFiles/edit_cache.dir
+E:/Program Files/GitHub/Chatroom/build/Desktop_Qt_6_5_3_MinGW_64_bit-MinSizeRel/CMakeFiles/rebuild_cache.dir
+E:/Program Files/GitHub/Chatroom/build/Desktop_Qt_6_5_3_MinGW_64_bit-MinSizeRel/CMakeFiles/list_install_components.dir
+E:/Program Files/GitHub/Chatroom/build/Desktop_Qt_6_5_3_MinGW_64_bit-MinSizeRel/CMakeFiles/install.dir
+E:/Program Files/GitHub/Chatroom/build/Desktop_Qt_6_5_3_MinGW_64_bit-MinSizeRel/CMakeFiles/install/local.dir
+E:/Program Files/GitHub/Chatroom/build/Desktop_Qt_6_5_3_MinGW_64_bit-MinSizeRel/CMakeFiles/install/strip.dir
+E:/Program Files/GitHub/Chatroom/build/Desktop_Qt_6_5_3_MinGW_64_bit-MinSizeRel/CMakeFiles/Chatroom_autogen_timestamp_deps.dir
+E:/Program Files/GitHub/Chatroom/build/Desktop_Qt_6_5_3_MinGW_64_bit-MinSizeRel/CMakeFiles/Chatroom_autogen.dir
+E:/Program Files/GitHub/Chatroom/build/Desktop_Qt_6_5_3_MinGW_64_bit-MinSizeRel/CMakeFiles/ChatServer_autogen_timestamp_deps.dir
+E:/Program Files/GitHub/Chatroom/build/Desktop_Qt_6_5_3_MinGW_64_bit-MinSizeRel/CMakeFiles/ChatServer_autogen.dir

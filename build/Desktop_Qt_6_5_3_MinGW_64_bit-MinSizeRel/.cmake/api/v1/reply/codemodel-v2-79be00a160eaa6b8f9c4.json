@@ -1,0 +1,106 @@
+{
+	"configurations" : 
+	[
+		{
+			"directories" : 
+			[
+				{
+					"build" : ".",
+					"hasInstallRule" : true,
+					"jsonFile" : "directory-.-MinSizeRel-3f68dd2c3f103256d738.json",
+					"minimumCMakeVersion" : 
+					{
+						"string" : "3.16"
+					},
+					"projectIndex" : 0,
+					"source" : ".",
+					"targetIndexes" : 
+					[
+						0,
+						1,
+						2,
+						3,
+						4,
+						5
+					]
+				}
+			],
+			"name" : "MinSizeRel",
+			"projects" : 
+			[
+				{
+					"directoryIndexes" : 
+					[
+						0
+					],
+					"name" : "Chatroom",
+					"targetIndexes" : 
+					[
+						0,
+						1,
+						2,
+						3,
+						4,
+						5
+					]
+				}
+			],
+			"targets" : 
+			[
+				{
+					"directoryIndex" : 0,
+					"id" : "ChatServer::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-ChatServer-MinSizeRel-42ea1d0a667520ac8636.json",
+					"name" : "ChatServer",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "ChatServer_autogen::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-ChatServer_autogen-MinSizeRel-cdbd5d881859539910a9.json",
+					"name" : "ChatServer_autogen",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "ChatServer_autogen_timestamp_deps::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-ChatServer_autogen_timestamp_deps-MinSizeRel-a561f33c087aa3a1ddbd.json",
+					"name" : "ChatServer_autogen_timestamp_deps",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "Chatroom::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-Chatroom-MinSizeRel-d1361e3ffe3a8bd65739.json",
+					"name" : "Chatroom",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "Chatroom_autogen::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-Chatroom_autogen-MinSizeRel-05417993845db9f7dfcb.json",
+					"name" : "Chatroom_autogen",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "Chatroom_autogen_timestamp_deps::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-Chatroom_autogen_timestamp_deps-MinSizeRel-f6c3752d66862bee89ce.json",
+					"name" : "Chatroom_autogen_timestamp_deps",
+					"projectIndex" : 0
+				}
+			]
+		}
+	],
+	"kind" : "codemodel",
+	"paths" : 
+	{
+		"build" : "E:/Program Files/GitHub/Chatroom/build/Desktop_Qt_6_5_3_MinGW_64_bit-MinSizeRel",
+		"source" : "E:/Program Files/GitHub/Chatroom"
+	},
+	"version" : 
+	{
+		"major" : 2,
+		"minor" : 7
+	}
+}
