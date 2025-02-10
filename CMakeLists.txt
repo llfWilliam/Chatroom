@@ -2,65 +2,58 @@ cmake_minimum_required(VERSION 3.16)
 
 project(Chatroom VERSION 0.1 LANGUAGES CXX)
 
+# 启用 Qt 生成 UI 代码、MOC 代码、资源文件
 set(CMAKE_AUTOUIC ON)
 set(CMAKE_AUTOMOC ON)
 set(CMAKE_AUTORCC ON)
 
+# 设定 C++ 标准
 set(CMAKE_CXX_STANDARD 17)
 set(CMAKE_CXX_STANDARD_REQUIRED ON)
 
-find_package(QT NAMES Qt6 Qt5 REQUIRED COMPONENTS Widgets)
-find_package(Qt${QT_VERSION_MAJOR} REQUIRED COMPONENTS Widgets)
-find_package(Qt6 REQUIRED COMPONENTS Core Network)
+# 查找 Qt 组件（同时支持 Qt5 和 Qt6）
+find_package(QT NAMES Qt6 Qt5 REQUIRED COMPONENTS Core Widgets Network)
+find_package(Qt${QT_VERSION_MAJOR} REQUIRED COMPONENTS Core Widgets Network)
 
+# 设置源文件
 set(PROJECT_SOURCES
-        main.cpp
-        mainwindow.cpp
-        mainwindow.h
-        mainwindow.ui
+    main.cpp
+    mainwindow.cpp
+    mainwindow.h
+    mainwindow.ui
+    server.h
+    server.cpp
+    client.h
+    client.cpp
 )
 
+# 创建 GUI 可执行文件（Qt6 需要 qt_add_executable）
 if(${QT_VERSION_MAJOR} GREATER_EQUAL 6)
     qt_add_executable(Chatroom
         MANUAL_FINALIZATION
         ${PROJECT_SOURCES}
-        server.h server.cpp
-        client.h client.cpp
     )
-# Define target properties for Android with Qt 6 as:
-#    set_property(TARGET Chatroom APPEND PROPERTY QT_ANDROID_PACKAGE_SOURCE_DIR
-#                 ${CMAKE_CURRENT_SOURCE_DIR}/android)
-# For more information, see https://doc.qt.io/qt-6/qt-add-executable.html#target-creation
 else()
-    if(ANDROID)
-        add_library(Chatroom SHARED
-            ${PROJECT_SOURCES}
-        )
-# Define properties for Android with Qt 5 after find_package() calls as:
-#    set(ANDROID_PACKAGE_SOURCE_DIR "${CMAKE_CURRENT_SOURCE_DIR}/android")
-    else()
-        add_executable(Chatroom
-            ${PROJECT_SOURCES}
-        )
-    endif()
+    add_executable(Chatroom ${PROJECT_SOURCES})
 endif()
 
-target_link_libraries(Chatroom PRIVATE Qt6::Core Qt6::Widgets Qt6::Network)
-
-# Qt for iOS sets MACOSX_BUNDLE_GUI_IDENTIFIER automatically since Qt 6.1.
-# If you are developing for iOS or macOS you should consider setting an
-# explicit, fixed bundle identifier manually though.
-if(${QT_VERSION} VERSION_LESS 6.1.0)
-  set(BUNDLE_ID_OPTION MACOSX_BUNDLE_GUI_IDENTIFIER com.example.Chatroom)
+# MinGW GUI 需要 -mwindows
+if (MINGW)
+    target_link_options(Chatroom PRIVATE -mwindows)  # MinGW GUI 应用需要 -mwindows
 endif()
-set_target_properties(Chatroom PROPERTIES
-    ${BUNDLE_ID_OPTION}
-    MACOSX_BUNDLE_BUNDLE_VERSION ${PROJECT_VERSION}
-    MACOSX_BUNDLE_SHORT_VERSION_STRING ${PROJECT_VERSION_MAJOR}.${PROJECT_VERSION_MINOR}
-    MACOSX_BUNDLE TRUE
-    WIN32_EXECUTABLE TRUE
-)
 
+# 设置 Chatroom 为 GUI 程序
+set_target_properties(Chatroom PROPERTIES WIN32_EXECUTABLE TRUE)
+
+# 链接 Qt6 库
+target_link_libraries(Chatroom PRIVATE Qt${QT_VERSION_MAJOR}::Widgets Qt${QT_VERSION_MAJOR}::Core Qt${QT_VERSION_MAJOR}::Network)
+
+# 创建服务器端可执行文件（⚠️ 不能加 WIN32_EXECUTABLE）
+add_executable(ChatServer server.cpp)
+set_target_properties(ChatServer PROPERTIES WIN32_EXECUTABLE FALSE)
+target_link_libraries(ChatServer PRIVATE Qt${QT_VERSION_MAJOR}::Core Qt${QT_VERSION_MAJOR}::Network)
+
+# 安装目标
 include(GNUInstallDirs)
 install(TARGETS Chatroom
     BUNDLE DESTINATION .
@@ -68,6 +61,7 @@ install(TARGETS Chatroom
     RUNTIME DESTINATION ${CMAKE_INSTALL_BINDIR}
 )
 
+# Qt6 需要 finalization
 if(QT_VERSION_MAJOR EQUAL 6)
     qt_finalize_executable(Chatroom)
 endif()

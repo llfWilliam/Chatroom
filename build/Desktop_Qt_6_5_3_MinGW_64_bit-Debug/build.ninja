@@ -99,7 +99,7 @@ build CMakeFiles/Chatroom.dir/client.cpp.obj: CXX_COMPILER__Chatroom_unscanned_D
 
 build Chatroom.exe: CXX_EXECUTABLE_LINKER__Chatroom_Debug CMakeFiles/Chatroom.dir/Chatroom_autogen/mocs_compilation.cpp.obj CMakeFiles/Chatroom.dir/main.cpp.obj CMakeFiles/Chatroom.dir/mainwindow.cpp.obj CMakeFiles/Chatroom.dir/server.cpp.obj CMakeFiles/Chatroom.dir/client.cpp.obj | E$:/Qt/6.5.3/mingw_64/lib/libQt6Widgets.a E$:/Qt/6.5.3/mingw_64/lib/libQt6Network.a E$:/Qt/6.5.3/mingw_64/lib/libQt6Gui.a E$:/Qt/6.5.3/mingw_64/lib/libQt6Core.a E$:/Qt/6.5.3/mingw_64/lib/libQt6EntryPoint.a || Chatroom_autogen Chatroom_autogen_timestamp_deps
   FLAGS = -DQT_QML_DEBUG -g
-  LINK_FLAGS = -mwindows
+  LINK_FLAGS = -mwindows  -mwindows
   LINK_LIBRARIES = E:/Qt/6.5.3/mingw_64/lib/libQt6Widgets.a  E:/Qt/6.5.3/mingw_64/lib/libQt6Network.a  E:/Qt/6.5.3/mingw_64/lib/libQt6Gui.a  -ld3d11  -ldxgi  -ldxguid  E:/Qt/6.5.3/mingw_64/lib/libQt6Core.a  -lmpr  -luserenv  -lmingw32  E:/Qt/6.5.3/mingw_64/lib/libQt6EntryPoint.a  -lshell32  -lws2_32  -lkernel32 -luser32 -lgdi32 -lwinspool -lshell32 -lole32 -loleaut32 -luuid -lcomdlg32 -ladvapi32
   OBJECT_DIR = CMakeFiles\Chatroom.dir
   POST_BUILD = cd .
@@ -107,6 +107,49 @@ build Chatroom.exe: CXX_EXECUTABLE_LINKER__Chatroom_Debug CMakeFiles/Chatroom.di
   TARGET_FILE = Chatroom.exe
   TARGET_IMPLIB = libChatroom.dll.a
   TARGET_PDB = Chatroom.exe.dbg
+
+# =============================================================================
+# Object build statements for EXECUTABLE target ChatServer
+
+
+#############################################
+# Order-only phony target for ChatServer
+
+build cmake_object_order_depends_target_ChatServer: phony || ChatServer_autogen ChatServer_autogen/mocs_compilation.cpp ChatServer_autogen/timestamp ChatServer_autogen_timestamp_deps
+
+build CMakeFiles/ChatServer.dir/ChatServer_autogen/mocs_compilation.cpp.obj: CXX_COMPILER__ChatServer_unscanned_Debug E$:/Program$ Files/GitHub/Chatroom/build/Desktop_Qt_6_5_3_MinGW_64_bit-Debug/ChatServer_autogen/mocs_compilation.cpp || cmake_object_order_depends_target_ChatServer
+  DEFINES = -DMINGW_HAS_SECURE_API=1 -DQT_CORE_LIB -DQT_NETWORK_LIB -DUNICODE -DWIN32 -DWIN64 -D_ENABLE_EXTENDED_ALIGNED_STORAGE -D_UNICODE -D_WIN64
+  DEP_FILE = CMakeFiles\ChatServer.dir\ChatServer_autogen\mocs_compilation.cpp.obj.d
+  FLAGS = -DQT_QML_DEBUG -g -std=gnu++17 -fdiagnostics-color=always
+  INCLUDES = -I"E:/Program Files/GitHub/Chatroom/build/Desktop_Qt_6_5_3_MinGW_64_bit-Debug/ChatServer_autogen/include" -isystem E:/Qt/6.5.3/mingw_64/include/QtCore -isystem E:/Qt/6.5.3/mingw_64/include -isystem E:/Qt/6.5.3/mingw_64/mkspecs/win32-g++ -isystem E:/Qt/6.5.3/mingw_64/include/QtNetwork
+  OBJECT_DIR = CMakeFiles\ChatServer.dir
+  OBJECT_FILE_DIR = CMakeFiles\ChatServer.dir\ChatServer_autogen
+
+build CMakeFiles/ChatServer.dir/server.cpp.obj: CXX_COMPILER__ChatServer_unscanned_Debug E$:/Program$ Files/GitHub/Chatroom/server.cpp || cmake_object_order_depends_target_ChatServer
+  DEFINES = -DMINGW_HAS_SECURE_API=1 -DQT_CORE_LIB -DQT_NETWORK_LIB -DUNICODE -DWIN32 -DWIN64 -D_ENABLE_EXTENDED_ALIGNED_STORAGE -D_UNICODE -D_WIN64
+  DEP_FILE = CMakeFiles\ChatServer.dir\server.cpp.obj.d
+  FLAGS = -DQT_QML_DEBUG -g -std=gnu++17 -fdiagnostics-color=always
+  INCLUDES = -I"E:/Program Files/GitHub/Chatroom/build/Desktop_Qt_6_5_3_MinGW_64_bit-Debug/ChatServer_autogen/include" -isystem E:/Qt/6.5.3/mingw_64/include/QtCore -isystem E:/Qt/6.5.3/mingw_64/include -isystem E:/Qt/6.5.3/mingw_64/mkspecs/win32-g++ -isystem E:/Qt/6.5.3/mingw_64/include/QtNetwork
+  OBJECT_DIR = CMakeFiles\ChatServer.dir
+  OBJECT_FILE_DIR = CMakeFiles\ChatServer.dir
+
+
+# =============================================================================
+# Link build statements for EXECUTABLE target ChatServer
+
+
+#############################################
+# Link the executable ChatServer.exe
+
+build ChatServer.exe: CXX_EXECUTABLE_LINKER__ChatServer_Debug CMakeFiles/ChatServer.dir/ChatServer_autogen/mocs_compilation.cpp.obj CMakeFiles/ChatServer.dir/server.cpp.obj | E$:/Qt/6.5.3/mingw_64/lib/libQt6Network.a E$:/Qt/6.5.3/mingw_64/lib/libQt6Core.a || ChatServer_autogen ChatServer_autogen_timestamp_deps
+  FLAGS = -DQT_QML_DEBUG -g
+  LINK_LIBRARIES = E:/Qt/6.5.3/mingw_64/lib/libQt6Network.a  E:/Qt/6.5.3/mingw_64/lib/libQt6Core.a  -lmpr  -luserenv  -lws2_32  -lkernel32 -luser32 -lgdi32 -lwinspool -lshell32 -lole32 -loleaut32 -luuid -lcomdlg32 -ladvapi32
+  OBJECT_DIR = CMakeFiles\ChatServer.dir
+  POST_BUILD = cd .
+  PRE_LINK = cd .
+  TARGET_FILE = ChatServer.exe
+  TARGET_IMPLIB = libChatServer.dll.a
+  TARGET_PDB = ChatServer.exe.dbg
 
 
 #############################################
@@ -188,6 +231,18 @@ build Chatroom_autogen: phony CMakeFiles/Chatroom_autogen Chatroom_autogen/inclu
 
 
 #############################################
+# Utility command for ChatServer_autogen_timestamp_deps
+
+build ChatServer_autogen_timestamp_deps: phony
+
+
+#############################################
+# Utility command for ChatServer_autogen
+
+build ChatServer_autogen: phony CMakeFiles/ChatServer_autogen ChatServer_autogen/include/ui_mainwindow.h ChatServer_autogen/timestamp ChatServer_autogen/mocs_compilation.cpp ChatServer_autogen_timestamp_deps
+
+
+#############################################
 # Custom command for Chatroom_autogen\timestamp
 
 build Chatroom_autogen/timestamp Chatroom_autogen/mocs_compilation.cpp | ${cmake_ninja_workdir}Chatroom_autogen/timestamp ${cmake_ninja_workdir}Chatroom_autogen/mocs_compilation.cpp: CUSTOM_COMMAND E$:/Qt/6.5.3/mingw_64/./bin/moc.exe E$:/Qt/6.5.3/mingw_64/./bin/uic.exe || Chatroom_autogen_timestamp_deps
@@ -199,12 +254,31 @@ build Chatroom_autogen/timestamp Chatroom_autogen/mocs_compilation.cpp | ${cmake
 
 
 #############################################
+# Custom command for ChatServer_autogen\timestamp
+
+build ChatServer_autogen/timestamp ChatServer_autogen/mocs_compilation.cpp | ${cmake_ninja_workdir}ChatServer_autogen/timestamp ${cmake_ninja_workdir}ChatServer_autogen/mocs_compilation.cpp: CUSTOM_COMMAND E$:/Qt/6.5.3/mingw_64/./bin/moc.exe E$:/Qt/6.5.3/mingw_64/./bin/uic.exe || ChatServer_autogen_timestamp_deps
+  COMMAND = C:\WINDOWS\system32\cmd.exe /C "cd /D "E:\Program Files\GitHub\Chatroom\build\Desktop_Qt_6_5_3_MinGW_64_bit-Debug" && E:\Qt\Tools\CMake_64\bin\cmake.exe -E cmake_autogen "E:/Program Files/GitHub/Chatroom/build/Desktop_Qt_6_5_3_MinGW_64_bit-Debug/CMakeFiles/ChatServer_autogen.dir/AutogenInfo.json" Debug && E:\Qt\Tools\CMake_64\bin\cmake.exe -E touch "E:/Program Files/GitHub/Chatroom/build/Desktop_Qt_6_5_3_MinGW_64_bit-Debug/ChatServer_autogen/timestamp" && E:\Qt\Tools\CMake_64\bin\cmake.exe -E cmake_transform_depfile Ninja gccdepfile "E:/Program Files/GitHub/Chatroom" "E:/Program Files/GitHub/Chatroom" "E:/Program Files/GitHub/Chatroom/build/Desktop_Qt_6_5_3_MinGW_64_bit-Debug" "E:/Program Files/GitHub/Chatroom/build/Desktop_Qt_6_5_3_MinGW_64_bit-Debug" "E:/Program Files/GitHub/Chatroom/build/Desktop_Qt_6_5_3_MinGW_64_bit-Debug/ChatServer_autogen/deps" "E:/Program Files/GitHub/Chatroom/build/Desktop_Qt_6_5_3_MinGW_64_bit-Debug/CMakeFiles/d/853a3f6f38b0bb8d76b1a32ecfdac448d48e056f76f044099c3c0364b807ab63.d""
+  DESC = Automatic MOC and UIC for target ChatServer
+  depfile = CMakeFiles\d\853a3f6f38b0bb8d76b1a32ecfdac448d48e056f76f044099c3c0364b807ab63.d
+  deps = gcc
+  restat = 1
+
+
+#############################################
 # Phony custom command for CMakeFiles\Chatroom_autogen
 
 build CMakeFiles/Chatroom_autogen Chatroom_autogen/include/ui_mainwindow.h | ${cmake_ninja_workdir}CMakeFiles/Chatroom_autogen ${cmake_ninja_workdir}Chatroom_autogen/include/ui_mainwindow.h: phony Chatroom_autogen/timestamp || Chatroom_autogen_timestamp_deps
 
+
+#############################################
+# Phony custom command for CMakeFiles\ChatServer_autogen
+
+build CMakeFiles/ChatServer_autogen ChatServer_autogen/include/ui_mainwindow.h | ${cmake_ninja_workdir}CMakeFiles/ChatServer_autogen ${cmake_ninja_workdir}ChatServer_autogen/include/ui_mainwindow.h: phony ChatServer_autogen/timestamp || ChatServer_autogen_timestamp_deps
+
 # =============================================================================
 # Target aliases.
+
+build ChatServer: phony ChatServer.exe
 
 build Chatroom: phony Chatroom.exe
 
@@ -216,7 +290,7 @@ build Chatroom: phony Chatroom.exe
 #############################################
 # Folder: E:/Program Files/GitHub/Chatroom/build/Desktop_Qt_6_5_3_MinGW_64_bit-Debug
 
-build all: phony Chatroom.exe
+build all: phony Chatroom.exe ChatServer.exe
 
 # =============================================================================
 # Built-in targets
