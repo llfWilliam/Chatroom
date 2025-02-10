@@ -285,12 +285,6 @@
 			"MU",
 			"EWIEGA46WW/moc_mainwindow.cpp",
 			null
-		],
-		[
-			"E:/Program Files/GitHub/Chatroom/server.h",
-			"MU",
-			"EWIEGA46WW/moc_server.cpp",
-			null
 		]
 	],
 	"HEADER_EXTENSIONS" : [ "h", "hh", "h++", "hm", "hpp", "hxx", "in", "txx" ],
@@ -367,8 +361,7 @@
 	[
 		[ "E:/Program Files/GitHub/Chatroom/client.cpp", "MU", null ],
 		[ "E:/Program Files/GitHub/Chatroom/main.cpp", "MU", null ],
-		[ "E:/Program Files/GitHub/Chatroom/mainwindow.cpp", "MU", null ],
-		[ "E:/Program Files/GitHub/Chatroom/server.cpp", "MU", null ]
+		[ "E:/Program Files/GitHub/Chatroom/mainwindow.cpp", "MU", null ]
 	],
 	"UIC_OPTIONS" : [],
 	"UIC_SEARCH_PATHS" : [],

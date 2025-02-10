@@ -1,46 +1,22 @@
 # ninja log v6
-14	39	7608805644024623	CMakeFiles/clean.additional	26ab82f82478fbc9
-32	789	7608805652054555	E:/Program Files/GitHub/Chatroom/build/Desktop_Qt_6_5_3_MinGW_64_bit-Debug/ChatServer_autogen/timestamp	bb31e0689eb6623c
-10	484	7608807166502954	Chatroom.exe	6a2d73b61ca84c20
-39	48	7608805644263986	clean	fa92303e789e5432
-22	824	7608805652363728	Chatroom_autogen/timestamp	66bac2e857672df5
-32	789	7608805652054555	ChatServer_autogen/timestamp	bb31e0689eb6623c
-32	789	7608805652054555	ChatServer_autogen/mocs_compilation.cpp	bb31e0689eb6623c
-32	789	7608805652054555	E:/Program Files/GitHub/Chatroom/build/Desktop_Qt_6_5_3_MinGW_64_bit-Debug/ChatServer_autogen/mocs_compilation.cpp	bb31e0689eb6623c
-18	585	7608811059079602	build.ninja	7d0a53b423fd8c83
-22	824	7608805652363728	Chatroom_autogen/mocs_compilation.cpp	66bac2e857672df5
-22	824	7608805652363728	E:/Program Files/GitHub/Chatroom/build/Desktop_Qt_6_5_3_MinGW_64_bit-Debug/Chatroom_autogen/timestamp	66bac2e857672df5
-22	824	7608805652363728	E:/Program Files/GitHub/Chatroom/build/Desktop_Qt_6_5_3_MinGW_64_bit-Debug/Chatroom_autogen/mocs_compilation.cpp	66bac2e857672df5
-790	7287	7608805652972070	CMakeFiles/ChatServer.dir/ChatServer_autogen/mocs_compilation.cpp.obj	7c3a99fa60b585f2
-842	7391	7608805653500662	CMakeFiles/Chatroom.dir/client.cpp.obj	feab2b1cf42dbe9e
-793	8002	7608805653011974	CMakeFiles/ChatServer.dir/server.cpp.obj	b148de30e7d40115
-838	8073	7608805653450841	CMakeFiles/Chatroom.dir/server.cpp.obj	aa47b150c41b968a
-832	8714	7608805653400953	CMakeFiles/Chatroom.dir/mainwindow.cpp.obj	27831a3854b87d5b
-828	8615	7608805653351055	CMakeFiles/Chatroom.dir/main.cpp.obj	9057f6de294e06dd
-824	8690	7608805653321163	CMakeFiles/Chatroom.dir/Chatroom_autogen/mocs_compilation.cpp.obj	ddf67da9ae366ca1
 18	56	7608813924213853	CMakeFiles/clean.additional	26ab82f82478fbc9
+10	132	7608819154079026	E:/Program Files/GitHub/Chatroom/build/Desktop_Qt_6_5_3_MinGW_64_bit-Debug/ChatServer_autogen/timestamp	bb31e0689eb6623c
+10285	10856	7608814028222525	Chatroom.exe	6a2d73b61ca84c20
 56	69	7608813924592855	clean	fa92303e789e5432
-33	752	7608813932060713	ChatServer_autogen/timestamp	bb31e0689eb6623c
-33	752	7608813932060713	ChatServer_autogen/mocs_compilation.cpp	bb31e0689eb6623c
-33	752	7608813932060713	E:/Program Files/GitHub/Chatroom/build/Desktop_Qt_6_5_3_MinGW_64_bit-Debug/ChatServer_autogen/timestamp	bb31e0689eb6623c
-33	752	7608813932060713	E:/Program Files/GitHub/Chatroom/build/Desktop_Qt_6_5_3_MinGW_64_bit-Debug/ChatServer_autogen/mocs_compilation.cpp	bb31e0689eb6623c
 22	824	7608813932639997	Chatroom_autogen/timestamp	66bac2e857672df5
+10	132	7608819154079026	ChatServer_autogen/timestamp	bb31e0689eb6623c
+10	132	7608819154079026	ChatServer_autogen/mocs_compilation.cpp	bb31e0689eb6623c
+10	132	7608819154079026	E:/Program Files/GitHub/Chatroom/build/Desktop_Qt_6_5_3_MinGW_64_bit-Debug/ChatServer_autogen/mocs_compilation.cpp	bb31e0689eb6623c
+18	585	7608822956478481	build.ninja	7d0a53b423fd8c83
 22	824	7608813932639997	Chatroom_autogen/mocs_compilation.cpp	66bac2e857672df5
 22	824	7608813932639997	E:/Program Files/GitHub/Chatroom/build/Desktop_Qt_6_5_3_MinGW_64_bit-Debug/Chatroom_autogen/timestamp	66bac2e857672df5
 22	824	7608813932639997	E:/Program Files/GitHub/Chatroom/build/Desktop_Qt_6_5_3_MinGW_64_bit-Debug/Chatroom_autogen/mocs_compilation.cpp	66bac2e857672df5
 753	8977	7608813933006045	CMakeFiles/ChatServer.dir/ChatServer_autogen/mocs_compilation.cpp.obj	7c3a99fa60b585f2
-761	9000	7608813933006045	CMakeFiles/ChatServer.dir/server_main.cpp.obj	da7d283b24bea553
 854	9157	7608813933943318	CMakeFiles/Chatroom.dir/client.cpp.obj	feab2b1cf42dbe9e
+133	2157	7608819155302294	CMakeFiles/ChatServer.dir/server_main.cpp.obj	da7d283b24bea553
 757	9597	7608813933006045	CMakeFiles/ChatServer.dir/server.cpp.obj	b148de30e7d40115
 846	9803	7608813933787114	CMakeFiles/Chatroom.dir/server.cpp.obj	aa47b150c41b968a
 839	10234	7608813933787114	CMakeFiles/Chatroom.dir/mainwindow.cpp.obj	27831a3854b87d5b
 832	10249	7608813933787114	CMakeFiles/Chatroom.dir/main.cpp.obj	9057f6de294e06dd
-9597	10251	7608814021348789	ChatServer.exe	8afb2ca12da8a9a7
 825	10285	7608813933630892	CMakeFiles/Chatroom.dir/Chatroom_autogen/mocs_compilation.cpp.obj	ddf67da9ae366ca1
-10285	10856	7608814028222525	Chatroom.exe	6a2d73b61ca84c20
-10	132	7608819154079026	ChatServer_autogen/timestamp	bb31e0689eb6623c
-10	132	7608819154079026	ChatServer_autogen/mocs_compilation.cpp	bb31e0689eb6623c
-10	132	7608819154079026	E:/Program Files/GitHub/Chatroom/build/Desktop_Qt_6_5_3_MinGW_64_bit-Debug/ChatServer_autogen/timestamp	bb31e0689eb6623c
-10	132	7608819154079026	E:/Program Files/GitHub/Chatroom/build/Desktop_Qt_6_5_3_MinGW_64_bit-Debug/ChatServer_autogen/mocs_compilation.cpp	bb31e0689eb6623c
-133	2157	7608819155302294	CMakeFiles/ChatServer.dir/server_main.cpp.obj	da7d283b24bea553
 2158	2449	7608819175477475	ChatServer.exe	8afb2ca12da8a9a7

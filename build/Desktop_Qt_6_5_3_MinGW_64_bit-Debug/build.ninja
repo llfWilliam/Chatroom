@@ -73,14 +73,6 @@ build CMakeFiles/Chatroom.dir/mainwindow.cpp.obj: CXX_COMPILER__Chatroom_unscann
   OBJECT_DIR = CMakeFiles\Chatroom.dir
   OBJECT_FILE_DIR = CMakeFiles\Chatroom.dir
 
-build CMakeFiles/Chatroom.dir/server.cpp.obj: CXX_COMPILER__Chatroom_unscanned_Debug E$:/Program$ Files/GitHub/Chatroom/server.cpp || cmake_object_order_depends_target_Chatroom
-  DEFINES = -DMINGW_HAS_SECURE_API=1 -DQT_CORE_LIB -DQT_GUI_LIB -DQT_NEEDS_QMAIN -DQT_NETWORK_LIB -DQT_WIDGETS_LIB -DUNICODE -DWIN32 -DWIN64 -D_ENABLE_EXTENDED_ALIGNED_STORAGE -D_UNICODE -D_WIN64
-  DEP_FILE = CMakeFiles\Chatroom.dir\server.cpp.obj.d
-  FLAGS = -DQT_QML_DEBUG -g -std=gnu++17 -fdiagnostics-color=always
-  INCLUDES = -I"E:/Program Files/GitHub/Chatroom/build/Desktop_Qt_6_5_3_MinGW_64_bit-Debug/Chatroom_autogen/include" -isystem E:/Qt/6.5.3/mingw_64/include/QtCore -isystem E:/Qt/6.5.3/mingw_64/include -isystem E:/Qt/6.5.3/mingw_64/mkspecs/win32-g++ -isystem E:/Qt/6.5.3/mingw_64/include/QtWidgets -isystem E:/Qt/6.5.3/mingw_64/include/QtGui -isystem E:/Qt/6.5.3/mingw_64/include/QtNetwork
-  OBJECT_DIR = CMakeFiles\Chatroom.dir
-  OBJECT_FILE_DIR = CMakeFiles\Chatroom.dir
-
 build CMakeFiles/Chatroom.dir/client.cpp.obj: CXX_COMPILER__Chatroom_unscanned_Debug E$:/Program$ Files/GitHub/Chatroom/client.cpp || cmake_object_order_depends_target_Chatroom
   DEFINES = -DMINGW_HAS_SECURE_API=1 -DQT_CORE_LIB -DQT_GUI_LIB -DQT_NEEDS_QMAIN -DQT_NETWORK_LIB -DQT_WIDGETS_LIB -DUNICODE -DWIN32 -DWIN64 -D_ENABLE_EXTENDED_ALIGNED_STORAGE -D_UNICODE -D_WIN64
   DEP_FILE = CMakeFiles\Chatroom.dir\client.cpp.obj.d
@@ -97,7 +89,7 @@ build CMakeFiles/Chatroom.dir/client.cpp.obj: CXX_COMPILER__Chatroom_unscanned_D
 #############################################
 # Link the executable Chatroom.exe
 
-build Chatroom.exe: CXX_EXECUTABLE_LINKER__Chatroom_Debug CMakeFiles/Chatroom.dir/Chatroom_autogen/mocs_compilation.cpp.obj CMakeFiles/Chatroom.dir/main.cpp.obj CMakeFiles/Chatroom.dir/mainwindow.cpp.obj CMakeFiles/Chatroom.dir/server.cpp.obj CMakeFiles/Chatroom.dir/client.cpp.obj | E$:/Qt/6.5.3/mingw_64/lib/libQt6Widgets.a E$:/Qt/6.5.3/mingw_64/lib/libQt6Network.a E$:/Qt/6.5.3/mingw_64/lib/libQt6Gui.a E$:/Qt/6.5.3/mingw_64/lib/libQt6Core.a E$:/Qt/6.5.3/mingw_64/lib/libQt6EntryPoint.a || Chatroom_autogen Chatroom_autogen_timestamp_deps
+build Chatroom.exe: CXX_EXECUTABLE_LINKER__Chatroom_Debug CMakeFiles/Chatroom.dir/Chatroom_autogen/mocs_compilation.cpp.obj CMakeFiles/Chatroom.dir/main.cpp.obj CMakeFiles/Chatroom.dir/mainwindow.cpp.obj CMakeFiles/Chatroom.dir/client.cpp.obj | E$:/Qt/6.5.3/mingw_64/lib/libQt6Widgets.a E$:/Qt/6.5.3/mingw_64/lib/libQt6Network.a E$:/Qt/6.5.3/mingw_64/lib/libQt6Gui.a E$:/Qt/6.5.3/mingw_64/lib/libQt6Core.a E$:/Qt/6.5.3/mingw_64/lib/libQt6EntryPoint.a || Chatroom_autogen Chatroom_autogen_timestamp_deps
   FLAGS = -DQT_QML_DEBUG -g
   LINK_FLAGS = -mwindows  -mwindows
   LINK_LIBRARIES = E:/Qt/6.5.3/mingw_64/lib/libQt6Widgets.a  E:/Qt/6.5.3/mingw_64/lib/libQt6Network.a  E:/Qt/6.5.3/mingw_64/lib/libQt6Gui.a  -ld3d11  -ldxgi  -ldxguid  E:/Qt/6.5.3/mingw_64/lib/libQt6Core.a  -lmpr  -luserenv  -lmingw32  E:/Qt/6.5.3/mingw_64/lib/libQt6EntryPoint.a  -lshell32  -lws2_32  -lkernel32 -luser32 -lgdi32 -lwinspool -lshell32 -lole32 -loleaut32 -luuid -lcomdlg32 -ladvapi32

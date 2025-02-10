@@ -21,8 +21,8 @@ set(PROJECT_SOURCES
     mainwindow.cpp
     mainwindow.h
     mainwindow.ui
-    server.h
-    server.cpp
+
+
     client.h
     client.cpp
 )
