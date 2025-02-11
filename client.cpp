@@ -17,7 +17,6 @@ ChatClient::ChatClient(QObject *parent) : QObject(parent) {
 // 连接服务器
 void ChatClient::connectToServer(const QString &host, int port) {
     qDebug() << "尝试连接到服务器：" << host << ":" << port;
-    socket->abort();  // 取消之前的连接，确保不会冲突
     socket->connectToHost(QHostAddress(host), port);
 }
 void ChatClient::sendMessage(const QString &message) {
@@ -42,7 +41,7 @@ void ChatClient::onReadyRead() {
     QString message = QString::fromUtf8(data).trimmed();  // 去除首尾空格，避免解析错误
     if (userId == -1 && message.startsWith("ID_ASSIGNED|")) {  // 只在未分配 ID 时处理
         // 服务器返回的 ID
-        userId++;
+        userId++;//一旦接收到了立即关闭入口
         userId = message.section('|', 1, 1).toInt();
         emit messageReceived(QString("[你的ID: %1]").arg(userId));  // 显示自己分配的 ID
     }
@@ -82,7 +81,9 @@ void ChatClient::onErrorOccurred(QAbstractSocket::SocketError socketError) {
 void ChatClient::onDisconnected() {
     qDebug() << "与服务器断开连接";
     emit disconnected();
-    reconnectTimer->start(5000);  // 断开连接后 5 秒后重试
+    reconnectTimer->start(5000);// 断开连接后 5 秒后重试
+    int userid=-1;
+    socket->flush();
 }
 
 void ChatClient::onReconnect() {
