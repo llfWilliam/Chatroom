@@ -39,10 +39,14 @@ void ChatClient::onReadyRead() {
         // 服务器返回的 ID
         userId = message.section('|', 1, 1).toInt();
         emit messageReceived(QString("[你的ID: %1]").arg(userId));  // 显示自己分配的 ID
-    } else {
+    } else if(message.startsWith("ID_ASSIGNED|")){
         // 处理普通消息
-        emit messageReceived(message);  // 显示其他的聊天消息
-    }
+        QString specialmessage = message.section('|', 2, 2);
+        emit messageReceived(specialmessage);  // 显示其他的聊天消息
+        }
+    else{
+           emit messageReceived(message);
+        }
 }
 
 void ChatClient::onConnected() {
@@ -77,13 +81,13 @@ void ChatClient::onErrorOccurred(QAbstractSocket::SocketError socketError) {
 
 void ChatClient::onDisconnected() {
     qDebug() << "与服务器断开连接";
+    userId=-1;
     emit disconnected();
     reconnectTimer->start(5000);  // 断开连接后 5 秒后重试
 }
 
 void ChatClient::onReconnect() {
     qDebug() << "重新尝试连接服务器...";
-    int userId=-1;
     connectToServer("127.0.0.1", 12345);
 }
 
