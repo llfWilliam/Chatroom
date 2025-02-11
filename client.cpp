@@ -10,24 +10,15 @@ ChatClient::ChatClient(QObject *parent) : QObject(parent) {
     connect(socket, &QTcpSocket::readyRead, this, &ChatClient::onReadyRead);
     connect(socket, &QTcpSocket::disconnected, this, &ChatClient::onDisconnected);
     connect(socket, &QTcpSocket::connected, this, &ChatClient::onConnected);
+    connect(socket, &QTcpSocket::errorOccurred, this, &ChatClient::onErrorOccurred);
     connect(reconnectTimer, &QTimer::timeout, this, &ChatClient::onReconnect);
 }
 
 // 连接服务器
 void ChatClient::connectToServer(const QString &host, int port) {
     qDebug() << "尝试连接到服务器：" << host << ":" << port;
+    socket->abort();  // 取消之前的连接，确保不会冲突
     socket->connectToHost(QHostAddress(host), port);
-    QTimer::singleShot(5000, this, [this]() {
-        if (socket->state() == QTcpSocket::ConnectedState) {
-            qDebug() << "连接成功（5秒检查）";
-            emit connected();
-            reconnectTimer->stop();
-        } else {
-            qDebug() << "连接失败（5秒检查）：" << socket->errorString();
-            emit connectionFailed(socket->errorString());
-            reconnectTimer->start(5000);  // 5秒后重试
-        }
-    });
 }
 void ChatClient::sendMessage(const QString &message) {
     if (socket->state() == QTcpSocket::ConnectedState) {
@@ -49,9 +40,32 @@ void ChatClient::onReadyRead() {
 }
 void ChatClient::onConnected() {
     qDebug() << "与服务器连接成功";
+    emit connected(); // 立即通知连接成功
     reconnectTimer->stop();
 }
-
+void ChatClient::onErrorOccurred(QAbstractSocket::SocketError socketError) {
+    QString errorMsg;
+    switch (socketError) {
+    case QAbstractSocket::HostNotFoundError:
+        errorMsg = "错误: 服务器地址无法解析";
+        break;
+    case QAbstractSocket::ConnectionRefusedError:
+        errorMsg = "错误: 服务器拒绝连接";
+        break;
+    case QAbstractSocket::RemoteHostClosedError:
+        errorMsg = "错误: 远程主机关闭连接";
+        break;
+    default:
+        errorMsg = "网络错误: " + socket->errorString();
+    }
+    qDebug() << errorMsg;
+    emit errorOccurred(errorMsg);
+    emit connectionFailed(errorMsg); // 立即通知失败，不再手动延迟
+    if (socket->state() != QTcpSocket::ConnectedState) {
+        qDebug() << "错误发生，5 秒后尝试重连...";
+        reconnectTimer->start(5000);
+    }
+}
 void ChatClient::onDisconnected() {
     qDebug() << "与服务器断开连接";
     emit disconnected();
