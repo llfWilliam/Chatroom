@@ -28,26 +28,21 @@ void ChatServer::onNewConnection() {
     QTcpSocket *clientSocket = this->nextPendingConnection();
 
     // 当客户端成功连接时，触发 connected 信号
-    connect(clientSocket, &QTcpSocket::connected, this, [this, clientSocket]() {
-        int newUserId = generateUniqueUserId();
-        clientMap[clientSocket] = newUserId;
+    int newUserId = generateUniqueUserId();
+    clientMap[clientSocket] = newUserId;
+    // 发送 ID 给新用户
+    clientSocket->write(QString("ID_ASSIGNED|" + QString::number(newUserId)).toUtf8());
+    // 生成欢迎消息
+    QString welcomeMessage = QString("欢迎[User%1] 进入房间，快和他打个招呼吧！").arg(newUserId);
+    // 广播欢迎消息给所有客户端，包括新用户
+    for (auto it = clientMap.begin(); it != clientMap.end(); ++it) {
+        QTcpSocket *otherClient = it.key();
+        otherClient->write(welcomeMessage.toUtf8());
+    }
+    // 连接客户端的信号与槽
+    connect(clientSocket, &QTcpSocket::readyRead, this, &ChatServer::onReadyRead);
+    connect(clientSocket, &QTcpSocket::disconnected, this, &ChatServer::onClientDisconnected);
 
-        // 发送 ID 给新用户
-        clientSocket->write(QString("ID_ASSIGNED|" + QString::number(newUserId)).toUtf8());
-
-        // 生成欢迎消息
-        QString welcomeMessage = QString("欢迎[User%1] 进入房间，快和他打个招呼吧！").arg(newUserId);
-
-        // 广播欢迎消息给所有客户端，包括新用户
-        for (auto it = clientMap.begin(); it != clientMap.end(); ++it) {
-            QTcpSocket *otherClient = it.key();
-            otherClient->write(welcomeMessage.toUtf8());
-        }
-
-        // 连接客户端的信号与槽
-        connect(clientSocket, &QTcpSocket::readyRead, this, &ChatServer::onReadyRead);
-        connect(clientSocket, &QTcpSocket::disconnected, this, &ChatServer::onClientDisconnected);
-    });
 }
 // 读取客户端发送的消息
 void ChatServer::onReadyRead() {

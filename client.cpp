@@ -56,8 +56,6 @@ void ChatClient::onConnected() {
     qDebug() << "与服务器连接成功";
     emit connected(); // 立即通知连接成功
     reconnectTimer->stop();
-    socket->write("REQUEST_ID");
-    socket->flush();
 }
 void ChatClient::onErrorOccurred(QAbstractSocket::SocketError socketError) {
     QString errorMsg;
