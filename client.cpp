@@ -40,15 +40,14 @@ void ChatClient::sendMessage(const QString &message) {
 void ChatClient::onReadyRead() {
     QByteArray data = socket->readAll();
     QString message = QString::fromUtf8(data).trimmed();  // 去除首尾空格，避免解析错误
-
-    if (message.startsWith("ID_ASSIGNED|")) {
+    if (userId == -1 && message.startsWith("ID_ASSIGNED|")) {  // 只在未分配 ID 时处理
         // 服务器返回的 ID
+        userId++;
         userId = message.section('|', 1, 1).toInt();
-        qDebug() << "获取到服务器分配的 ID：" << userId;
         emit messageReceived(QString("[你的ID: %1]").arg(userId));  // 显示自己分配的 ID
-    } else {
+    }
+    else {
         // 处理普通消息
-        qDebug() << "收到消息：" << message;
         emit messageReceived(message);  // 显示其他的聊天消息
     }
 }

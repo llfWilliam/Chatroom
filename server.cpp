@@ -31,7 +31,7 @@ void ChatServer::onNewConnection() {
     int newUserId = generateUniqueUserId();
     clientMap[clientSocket] = newUserId;
     // 发送 ID 给新用户
-    clientSocket->write(QString("ID_ASSIGNED|" + QString::number(newUserId)).toUtf8());
+    clientSocket->write(QString("ID_ASSIGNED|" + QString::number(newUserId) + "|").toUtf8());
     // 生成欢迎消息
     QString welcomeMessage = QString("欢迎[User%1] 进入房间，快和他打个招呼吧！").arg(newUserId);
     // 广播欢迎消息给所有客户端，包括新用户
