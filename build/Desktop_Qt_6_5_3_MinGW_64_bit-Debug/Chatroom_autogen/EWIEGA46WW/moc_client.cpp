@@ -52,11 +52,12 @@ static constexpr auto qt_meta_stringdata_CLASSChatClientENDCLASS = QtMocHelpers:
     "onConnected",
     "onDisconnected",
     "onErrorOccurred",
-    "QAbstractSocket::SocketError"
+    "QAbstractSocket::SocketError",
+    "socketError"
 );
 #else  // !QT_MOC_HAS_STRING_DATA
 struct qt_meta_stringdata_CLASSChatClientENDCLASS_t {
-    uint offsetsAndSizes[30];
+    uint offsetsAndSizes[32];
     char stringdata0[11];
     char stringdata1[16];
     char stringdata2[1];
@@ -72,6 +73,7 @@ struct qt_meta_stringdata_CLASSChatClientENDCLASS_t {
     char stringdata12[15];
     char stringdata13[16];
     char stringdata14[29];
+    char stringdata15[12];
 };
 #define QT_MOC_LITERAL(ofs, len) \
     uint(sizeof(qt_meta_stringdata_CLASSChatClientENDCLASS_t::offsetsAndSizes) + ofs), len 
@@ -91,7 +93,8 @@ Q_CONSTINIT static const qt_meta_stringdata_CLASSChatClientENDCLASS_t qt_meta_st
         QT_MOC_LITERAL(120, 11),  // "onConnected"
         QT_MOC_LITERAL(132, 14),  // "onDisconnected"
         QT_MOC_LITERAL(147, 15),  // "onErrorOccurred"
-        QT_MOC_LITERAL(163, 28)   // "QAbstractSocket::SocketError"
+        QT_MOC_LITERAL(163, 28),  // "QAbstractSocket::SocketError"
+        QT_MOC_LITERAL(192, 11)   // "socketError"
     },
     "ChatClient",
     "messageReceived",
@@ -107,7 +110,8 @@ Q_CONSTINIT static const qt_meta_stringdata_CLASSChatClientENDCLASS_t qt_meta_st
     "onConnected",
     "onDisconnected",
     "onErrorOccurred",
-    "QAbstractSocket::SocketError"
+    "QAbstractSocket::SocketError",
+    "socketError"
 };
 #undef QT_MOC_LITERAL
 #endif // !QT_MOC_HAS_STRING_DATA
@@ -152,7 +156,7 @@ Q_CONSTINIT static const uint qt_meta_data_CLASSChatClientENDCLASS[] = {
     QMetaType::Void,
     QMetaType::Void,
     QMetaType::Void,
-    QMetaType::Void, 0x80000000 | 14,    2,
+    QMetaType::Void, 0x80000000 | 14,   15,
 
        0        // eod
 };

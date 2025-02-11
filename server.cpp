@@ -1,23 +1,20 @@
 #include "server.h"
+#include "clienthandler.h"
 #include <QDebug>  // 输出调试信息
 
 // 构造函数
 ChatServer::ChatServer(QObject *parent)
-    : QTcpServer(parent), reconnectTimer(new QTimer(this))  // 初始化成员
+    : QTcpServer(parent)
 {
-    // 连接定时器的超时信号
-    connect(reconnectTimer, &QTimer::timeout, this, &ChatServer::onReconnect);
 }
 
-
-// 启动服务器监听
 void ChatServer::startServer(quint16 port) {
-    if (this->listen(QHostAddress::Any, port)) {  // 监听所有 IP 地址
+    if (this->listen(QHostAddress::Any, port)) {
         qDebug() << "服务器启动，监听端口：" << port;
     } else {
         qDebug() << "服务器启动失败：" << this->errorString();
     }
-    connect(this, &QTcpServer::newConnection, this, &ChatServer::onNewConnection);  // 新连接
+    connect(this, &QTcpServer::newConnection, this, &ChatServer::onNewConnection);
 }
 int ChatServer::generateUniqueUserId() {
     return nextUserId++;
@@ -26,57 +23,43 @@ int ChatServer::generateUniqueUserId() {
 // 处理新的客户端连接
 void ChatServer::onNewConnection() {
     QTcpSocket *clientSocket = this->nextPendingConnection();
-
     // 当客户端成功连接时，触发 connected 信号
     int newUserId = generateUniqueUserId();
     clientMap[clientSocket] = newUserId;
-    // 发送 ID 给新用户
-    clientSocket->write(QString("ID_ASSIGNED|" + QString::number(newUserId) + "|").toUtf8());
-    // 生成欢迎消息
-    QString welcomeMessage = QString("欢迎[User%1] 进入房间，快和他打个招呼吧！").arg(newUserId);
-    // 广播欢迎消息给所有客户端，包括新用户
-    for (auto it = clientMap.begin(); it != clientMap.end(); ++it) {
-        QTcpSocket *otherClient = it.key();
-        otherClient->write(welcomeMessage.toUtf8());
-    }
-    // 连接客户端的信号与槽
-    connect(clientSocket, &QTcpSocket::readyRead, this, &ChatServer::onReadyRead);
-    connect(clientSocket, &QTcpSocket::disconnected, this, &ChatServer::onClientDisconnected);
+    ClientHandler *clientHandler = new ClientHandler(clientSocket, newUserId);
+    QThread *thread = new QThread(this);
+    clientHandler->moveToThread(thread);
+    clientSocket->write(QString("ID_ASSIGNED|%1|").arg(newUserId).toUtf8());
+    clientSocket->flush();
+    connect(thread, &QThread::started, clientHandler, &ClientHandler::run);
+    connect(clientHandler, &ClientHandler::messageReceived, this, &ChatServer::onClientMessageReceived);
+    connect(clientHandler, &ClientHandler::clientDisconnected, this, &ChatServer::onClientDisconnected);
+    connect(clientHandler, &ClientHandler::finished, thread, &QThread::quit);
+    thread->start();
 
 }
-// 读取客户端发送的消息
-void ChatServer::onReadyRead() {
-    QTcpSocket *clientSocket = qobject_cast<QTcpSocket*>(sender());
-    if (!clientSocket) return;
 
-    QByteArray data = clientSocket->readAll();
-    QString message = QString::fromUtf8(data);
-
-    int senderId = clientMap.value(clientSocket, -1);
-    if (senderId != -1) {
-        QString formattedMessage = QString("[User%1]: %2").arg(senderId).arg(message.section('|', 1, 1));
-
-        // 广播消息（但不发给自己）
-        for (auto it = clientMap.begin(); it != clientMap.end(); ++it) {
-            QTcpSocket *otherClient = it.key();  // 直接使用 key，而不是 keys()
-            if (otherClient != clientSocket) {
-                otherClient->write(formattedMessage.toUtf8());
-            }
+void ChatServer::onClientMessageReceived(int userId, const QString &message) {
+    // 广播消息给所有客户端（不包括发送者）
+    for (auto it = clientMap.begin(); it != clientMap.end(); ++it) {
+        QTcpSocket *otherClient = it.key();
+        if (clientMap[otherClient] != userId) {
+            QString formattedMessage = QString("[User%1]: %2").arg(userId).arg(message);
+            otherClient->write(formattedMessage.toUtf8());  // 发送格式化后的消息
+            otherClient->flush();
         }
     }
 }
 
-// 处理客户端断开
-void ChatServer::onClientDisconnected() {
-    QTcpSocket *clientSocket = qobject_cast<QTcpSocket*>(sender());
-    if (!clientSocket) return;
 
-    qDebug() << "客户端断开：" << clientMap.value(clientSocket, -1);
-    clientMap.remove(clientSocket);
-    clientSocket->deleteLater();
+void ChatServer::onClientDisconnected(int userId) {
+    // 从客户端映射中移除该用户
+    for (auto it = clientMap.begin(); it != clientMap.end(); ++it) {
+        if (it.value() == userId) {
+            clientMap.remove(it.key());
+            break;
+        }
+    }
+    qDebug() << "用户 ID " << userId << " 断开连接";
 }
 
-void ChatServer::onReconnect() {
-    qDebug() << "尝试重新连接...";
-    // 实现重试逻辑（例如重新启动服务器或连接数据库等）
-}

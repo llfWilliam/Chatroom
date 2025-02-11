@@ -275,6 +275,12 @@
 	"HEADERS" : 
 	[
 		[
+			"E:/Program Files/GitHub/Chatroom/clienthandler.h",
+			"MU",
+			"EWIEGA46WW/moc_clienthandler.cpp",
+			null
+		],
+		[
 			"E:/Program Files/GitHub/Chatroom/server.h",
 			"MU",
 			"EWIEGA46WW/moc_server.cpp",
@@ -358,6 +364,7 @@
 	"SETTINGS_FILE" : "E:/Program Files/GitHub/Chatroom/build/Desktop_Qt_6_5_3_MinGW_64_bit-Debug/CMakeFiles/ChatServer_autogen.dir/AutogenUsed.txt",
 	"SOURCES" : 
 	[
+		[ "E:/Program Files/GitHub/Chatroom/clienthandler.cpp", "MU", null ],
 		[ "E:/Program Files/GitHub/Chatroom/server.cpp", "MU", null ],
 		[ "E:/Program Files/GitHub/Chatroom/server_main.cpp", "MU", null ]
 	],

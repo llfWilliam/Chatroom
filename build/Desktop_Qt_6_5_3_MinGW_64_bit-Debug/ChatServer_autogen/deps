@@ -5,12 +5,15 @@ ChatServer_autogen/timestamp: \
 	E:/Program\ Files/GitHub/Chatroom/build/Desktop_Qt_6_5_3_MinGW_64_bit-Debug/CMakeFiles/3.29.3/CMakeRCCompiler.cmake \
 	E:/Program\ Files/GitHub/Chatroom/build/Desktop_Qt_6_5_3_MinGW_64_bit-Debug/CMakeFiles/3.29.3/CMakeSystem.cmake \
 	E:/Program\ Files/GitHub/Chatroom/build/Desktop_Qt_6_5_3_MinGW_64_bit-Debug/ChatServer_autogen/moc_predefs.h \
+	E:/Program\ Files/GitHub/Chatroom/clienthandler.cpp \
+	E:/Program\ Files/GitHub/Chatroom/clienthandler.h \
 	E:/Program\ Files/GitHub/Chatroom/server.cpp \
 	E:/Program\ Files/GitHub/Chatroom/server.h \
 	E:/Program\ Files/GitHub/Chatroom/server_main.cpp \
 	E:/Program\ Files/GitHub/Chatroom/server_main.h \
 	E:/Qt/6.5.3/mingw_64/include/QtCore/QMap \
 	E:/Qt/6.5.3/mingw_64/include/QtCore/QObject \
+	E:/Qt/6.5.3/mingw_64/include/QtCore/QThread \
 	E:/Qt/6.5.3/mingw_64/include/QtCore/QTimer \
 	E:/Qt/6.5.3/mingw_64/include/QtCore/q20memory.h \
 	E:/Qt/6.5.3/mingw_64/include/QtCore/q20type_traits.h \
@@ -41,7 +44,9 @@ ChatServer_autogen/timestamp: \
 	E:/Qt/6.5.3/mingw_64/include/QtCore/qcontiguouscache.h \
 	E:/Qt/6.5.3/mingw_64/include/QtCore/qdarwinhelpers.h \
 	E:/Qt/6.5.3/mingw_64/include/QtCore/qdatastream.h \
+	E:/Qt/6.5.3/mingw_64/include/QtCore/qdeadlinetimer.h \
 	E:/Qt/6.5.3/mingw_64/include/QtCore/qdebug.h \
+	E:/Qt/6.5.3/mingw_64/include/QtCore/qelapsedtimer.h \
 	E:/Qt/6.5.3/mingw_64/include/QtCore/qexceptionhandling.h \
 	E:/Qt/6.5.3/mingw_64/include/QtCore/qflags.h \
 	E:/Qt/6.5.3/mingw_64/include/QtCore/qfloat16.h \
@@ -102,6 +107,7 @@ ChatServer_autogen/timestamp: \
 	E:/Qt/6.5.3/mingw_64/include/QtCore/qtdeprecationmarkers.h \
 	E:/Qt/6.5.3/mingw_64/include/QtCore/qtenvironmentvariables.h \
 	E:/Qt/6.5.3/mingw_64/include/QtCore/qtextstream.h \
+	E:/Qt/6.5.3/mingw_64/include/QtCore/qthread.h \
 	E:/Qt/6.5.3/mingw_64/include/QtCore/qtimer.h \
 	E:/Qt/6.5.3/mingw_64/include/QtCore/qtmetamacros.h \
 	E:/Qt/6.5.3/mingw_64/include/QtCore/qtnoop.h \
@@ -332,6 +338,7 @@ ChatServer_autogen/timestamp: \
 	E:/Qt/Tools/mingw1120_64/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/bits/allocated_ptr.h \
 	E:/Qt/Tools/mingw1120_64/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/bits/allocator.h \
 	E:/Qt/Tools/mingw1120_64/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/bits/atomic_base.h \
+	E:/Qt/Tools/mingw1120_64/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/bits/atomic_futex.h \
 	E:/Qt/Tools/mingw1120_64/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/bits/atomic_lockfree_defines.h \
 	E:/Qt/Tools/mingw1120_64/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/bits/basic_string.h \
 	E:/Qt/Tools/mingw1120_64/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/bits/basic_string.tcc \
@@ -374,6 +381,8 @@ ChatServer_autogen/timestamp: \
 	E:/Qt/Tools/mingw1120_64/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/bits/specfun.h \
 	E:/Qt/Tools/mingw1120_64/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/bits/std_abs.h \
 	E:/Qt/Tools/mingw1120_64/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/bits/std_function.h \
+	E:/Qt/Tools/mingw1120_64/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/bits/std_mutex.h \
+	E:/Qt/Tools/mingw1120_64/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/bits/std_thread.h \
 	E:/Qt/Tools/mingw1120_64/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/bits/stl_algo.h \
 	E:/Qt/Tools/mingw1120_64/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/bits/stl_algobase.h \
 	E:/Qt/Tools/mingw1120_64/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/bits/stl_bvector.h \
@@ -400,6 +409,7 @@ ChatServer_autogen/timestamp: \
 	E:/Qt/Tools/mingw1120_64/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/bits/string_view.tcc \
 	E:/Qt/Tools/mingw1120_64/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/bits/stringfwd.h \
 	E:/Qt/Tools/mingw1120_64/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/bits/uniform_int_dist.h \
+	E:/Qt/Tools/mingw1120_64/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/bits/unique_lock.h \
 	E:/Qt/Tools/mingw1120_64/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/bits/unique_ptr.h \
 	E:/Qt/Tools/mingw1120_64/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/bits/unordered_map.h \
 	E:/Qt/Tools/mingw1120_64/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/bits/uses_allocator.h \
@@ -409,6 +419,7 @@ ChatServer_autogen/timestamp: \
 	E:/Qt/Tools/mingw1120_64/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/chrono \
 	E:/Qt/Tools/mingw1120_64/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/clocale \
 	E:/Qt/Tools/mingw1120_64/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/cmath \
+	E:/Qt/Tools/mingw1120_64/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/condition_variable \
 	E:/Qt/Tools/mingw1120_64/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/cstddef \
 	E:/Qt/Tools/mingw1120_64/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/cstdint \
 	E:/Qt/Tools/mingw1120_64/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/cstdio \
@@ -428,6 +439,7 @@ ChatServer_autogen/timestamp: \
 	E:/Qt/Tools/mingw1120_64/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/ext/string_conversions.h \
 	E:/Qt/Tools/mingw1120_64/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/ext/type_traits.h \
 	E:/Qt/Tools/mingw1120_64/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/functional \
+	E:/Qt/Tools/mingw1120_64/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/future \
 	E:/Qt/Tools/mingw1120_64/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/initializer_list \
 	E:/Qt/Tools/mingw1120_64/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/iosfwd \
 	E:/Qt/Tools/mingw1120_64/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/iterator \
@@ -435,6 +447,7 @@ ChatServer_autogen/timestamp: \
 	E:/Qt/Tools/mingw1120_64/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/list \
 	E:/Qt/Tools/mingw1120_64/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/map \
 	E:/Qt/Tools/mingw1120_64/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/memory \
+	E:/Qt/Tools/mingw1120_64/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/mutex \
 	E:/Qt/Tools/mingw1120_64/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/new \
 	E:/Qt/Tools/mingw1120_64/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/numeric \
 	E:/Qt/Tools/mingw1120_64/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/optional \
