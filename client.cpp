@@ -21,27 +21,43 @@ void ChatClient::connectToServer(const QString &host, int port) {
     socket->connectToHost(QHostAddress(host), port);
 }
 void ChatClient::sendMessage(const QString &message) {
-    if (socket->state() == QTcpSocket::ConnectedState) {
-        socket->write(message.toUtf8());
+    if (socket->state() == QTcpSocket::ConnectedState && userId != -1) {
+        // 将用户 ID 和消息内容一起发送
+        QString messageWithId = QString::number(userId) + "|" + message;
+        socket->write(messageWithId.toUtf8());
         socket->flush();
+
+        // 直接显示自己发的消息
+        emit messageReceived("[我]：" + message);
     } else {
-        qDebug() << "未连接到服务器";
+        qDebug() << "未连接到服务器或未分配 ID";
+        emit errorOccurred("未连接到服务器或未分配 ID");
     }
 }
+
 
 // 读取服务器返回的消息
 void ChatClient::onReadyRead() {
     QByteArray data = socket->readAll();
-    QString message = QString::fromUtf8(data);
-    qDebug() << "收到消息：" << message;
+    QString message = QString::fromUtf8(data).trimmed();  // 去除首尾空格，避免解析错误
 
-    // 发射信号，将接收到的消息传递给 MainWindow
-    emit messageReceived(message);
+    if (message.startsWith("ID_ASSIGNED|")) {
+        // 服务器返回的 ID
+        userId = message.section('|', 1, 1).toInt();
+        qDebug() << "获取到服务器分配的 ID：" << userId;
+        emit messageReceived(QString("[你的ID: %1]").arg(userId));  // 显示自己分配的 ID
+    } else {
+        // 处理普通消息
+        qDebug() << "收到消息：" << message;
+        emit messageReceived(message);  // 显示其他的聊天消息
+    }
 }
 void ChatClient::onConnected() {
     qDebug() << "与服务器连接成功";
     emit connected(); // 立即通知连接成功
     reconnectTimer->stop();
+    socket->write("REQUEST_ID");
+    socket->flush();
 }
 void ChatClient::onErrorOccurred(QAbstractSocket::SocketError socketError) {
     QString errorMsg;

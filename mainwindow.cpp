@@ -35,8 +35,9 @@ void MainWindow::onSendClicked() {
         messageInput->clear();
     }
 }
+//收到消息
 void MainWindow::onMessageReceived(const QString &message) {
-    chatBox->append("服务器: " + message);  // 显示服务器返回的消息
+    chatBox->append(message);  // 显示服务器返回的消息
 }
 
 // 处理连接成功

@@ -27,6 +27,7 @@ private slots:
 private:
     QTcpSocket *socket;  // TCP 连接
     QTimer *reconnectTimer;  //再次链接计时
+    int userId = -1;  // 用户唯一 ID
 };
 
 #endif // CLIENT_H

@@ -13,18 +13,18 @@ public:
         // 构造函数
     void startServer(quint16 port);  // 启动服务器
 
-protected:
-    void incomingConnection();  // 处理新连接
-
 private slots:
     void onReadyRead();       // 读取客户端消息
     void onClientDisconnected();  // 处理客户端断开
     void onReconnect();
+    void onNewConnection();
 
 private:
-    QMap<QTcpSocket*, QString> clients;  // 存储客户端连接信息
+    QMap<QTcpSocket*, int> clientMap;  // 存储客户端与 ID 映射
+    int nextUserId = 1;  // 递增的用户 ID // 存储客户端连接信息
     QTcpSocket* socket;
     QTimer* reconnectTimer;
+    int generateUniqueUserId();
 };
 
 #endif // SERVER_H
